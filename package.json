@@ -1,6 +1,6 @@
 {
   "name": "ua-parser-lite",
-  "version": "1.0.0",
+  "version": "1.0.1-alpha.1",
   "description": "A lightweight, pure TypeScript utility to parse browser User-Agent strings and detect browser, OS, CPU, device, and engine information.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
