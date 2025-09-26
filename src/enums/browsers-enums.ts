@@ -1,0 +1,18 @@
+const BrowserName = {
+    CHROME: "CHROME",
+    SAFARI: "SAFARI",
+    OPERA: "OPERA",
+    OPERA_COAST: 'Opera Coast',
+    OPERA_GX: 'Opera GX',
+    OPERA_MINI: 'Opera Mini',
+    OPERA_MOBI: 'Opera Mobi',
+    OPERA_TABLET: 'Opera Tablet',
+    OPERA_TOUCH: 'Opera Touch',
+    IE: "IE",
+    FIREBIRD: 'Firebird',
+    FIREFOX: 'Firefox',
+    FIREFOX_FOCUS: 'Firefox Focus',
+    FIREFOX_MOBILE: 'Mobile Firefox',
+    FIREFOX_REALITY: 'Firefox Reality',
+    WEBKIT: 'WebKit',
+}

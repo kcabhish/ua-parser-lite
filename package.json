@@ -1,0 +1,39 @@
+{
+  "name": "ua-parser-lite",
+  "version": "1.0.0",
+  "description": "A lightweight, pure TypeScript utility to parse browser User-Agent strings and detect browser, OS, CPU, device, and engine information.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage && open-cli coverage/lcov-report/index.html",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "useragent",
+    "parser",
+    "browser",
+    "ua",
+    "typescript"
+  ],
+  "author": "Abhishek KC",
+  "license": "MIT",
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kcabhish/ua-parser-lite.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kcabhish/ua-parser-lite/issues"
+  },
+  "homepage": "https://github.com/kcabhish/ua-parser-lite#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^24.5.2",
+    "jest": "^29.7.0",
+    "open-cli": "^8.0.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.0"
+  }
+}
