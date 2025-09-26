@@ -79,6 +79,7 @@ describe("parseUserAgent()", () => {
     expect(info.device.type).toBe("unknown");
     expect(info.engine.name).toBe("Unknown");
   });
+});
 
 describe("parseUserAgent browser branch", () => {
   const originalNavigator = globalThis.navigator;
@@ -100,5 +101,32 @@ describe("parseUserAgent browser branch", () => {
   });
 });
 
+describe("Device detection - tablets", () => {
+  it("should detect iPad as tablet", () => {
+    const ua =
+      "Mozilla/5.0 (iPad; CPU OS 17_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1";
+    const info = parseUserAgent(ua);
+    expect(info.device.type).toBe("tablet");
+  });
 
+  it("should detect Android tablet correctly", () => {
+    const ua =
+      "Mozilla/5.0 (Linux; Android 14; Nexus 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+    const info = parseUserAgent(ua);
+    expect(info.device.type).toBe("tablet");
+  });
+
+  it("should not misclassify tablets as mobile", () => {
+    const ua =
+      "Mozilla/5.0 (iPad; CPU OS 17_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1";
+    const info = parseUserAgent(ua);
+    expect(info.device.type).not.toBe("mobile");
+  });
+
+  it("should detect Samsung tablet (SM-T series) as tablet", () => {
+    const ua =
+      "Mozilla/5.0 (Linux; Android 13; SM-T860) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+    const info = parseUserAgent(ua);
+    expect(info.device.type).toBe("tablet");
+  });
 });

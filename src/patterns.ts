@@ -4,7 +4,9 @@ export interface Rule {
   versionRegex?: RegExp;
 }
 
-// --- Browsers ---
+/**
+ * Regex to detect browser rules
+ */
 export const browserRules: Rule[] = [
   { name: "Edge", regex: /edg\//i, versionRegex: /edg\/([\d.]+)/i },
   { name: "Chrome", regex: /chrome|crios/i, versionRegex: /(?:chrome|crios)\/([\d.]+)/i },
@@ -14,7 +16,9 @@ export const browserRules: Rule[] = [
   { name: "Internet Explorer", regex: /msie|trident/i, versionRegex: /(?:msie |rv:)([\d.]+)/i },
 ];
 
-// --- Engines ---
+/**
+ * Regex to detect browser engines
+ */
 export const engineRules: Rule[] = [
   { name: "Blink", regex: /blink/i },
   { name: "WebKit", regex: /applewebkit/i, versionRegex: /applewebkit\/([\d.]+)/i },
@@ -22,7 +26,9 @@ export const engineRules: Rule[] = [
   { name: "Trident", regex: /trident/i, versionRegex: /trident\/([\d.]+)/i },
 ];
 
-// --- Operating Systems (iOS before macOS) ---
+/**
+ * Regex to detect osRules
+ */
 export const osRules: Rule[] = [
   { name: "iOS (iPhone)", regex: /iphone os/i, versionRegex: /iphone os ([\d_]+)/i },
   { name: "iOS (iPad)", regex: /ipad; cpu os/i, versionRegex: /cpu os ([\d_]+)/i },
@@ -35,18 +41,32 @@ export const osRules: Rule[] = [
   { name: "Linux", regex: /linux/i },
 ];
 
-// --- CPU Architectures ---
+/**
+ * Regex to detect cpuRules
+ */
 export const cpuRules: Rule[] = [
   { name: "ARM", regex: /arm|aarch64/i },
   { name: "amd64", regex: /amd64|x86_64|win64|wow64|intel mac/i },
   { name: "x86", regex: /i[0-9]86/i },
 ];
 
-// --- Device Types ---
+/**
+ * Regex to detect devicetypes
+ */
 export const deviceRules: Rule[] = [
+  // Tablets first
+  { name: "tablet", regex: /ipad|tablet|android(?!.*mobile)|nexus 7|nexus 9|sm-t/i },
+
+  // Mobile phones
   { name: "mobile", regex: /mobile|iphone|ipod|android.*mobile|windows phone/i },
-  { name: "tablet", regex: /tablet|ipad|android(?!.*mobile)/i },
+
+  // Smart TVs
   { name: "smarttv", regex: /smart-tv|smarttv|googletv|appletv|hbbtv|pov_tv/i },
+
+  // Consoles
   { name: "console", regex: /playstation|xbox|nintendo/i },
+
+  // Wearables
   { name: "wearable", regex: /watch|applewatch|sm-r/i },
 ];
+
